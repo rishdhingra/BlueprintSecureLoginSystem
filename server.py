@@ -54,7 +54,9 @@ print("[S]: Server is waiting for connections...")
 while True:
     client, addr = server_socket.accept()
     print(f"[S]: Connected to {addr}")
-    
-    
+        
     client_thread = threading.Thread(target=handle_client, args=(client,))
     client_thread.start()
+
+    server_socket.close()
+    exit()
